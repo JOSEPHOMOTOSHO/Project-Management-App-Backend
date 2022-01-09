@@ -88,7 +88,7 @@ router.get(
   passport.authenticate("facebook"),
   ssoCallback
 );
-router.get("/loginPage", loginPage);
+router.get("/login", loginPage);
 router.post("/signup", createUser);
 router.get("/profile", authorization, viewProfile);
 router.put("/profile", authorization, updateProfile);

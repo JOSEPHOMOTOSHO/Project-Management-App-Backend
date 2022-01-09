@@ -19,6 +19,7 @@ passport_1.default.use(new FacebookStrategy({
     callbackURL: process.env.FACEBOOK_CALLBACK_URL,
     profileFields: ["id", "displayName", "email"],
 }, async function (accessToken, refreshToken, profile, done) {
+    console.log("i am in passport facebook jamming");
     const currentUser = await user_1.default
         .findOne({
         facebookId: profile.id,

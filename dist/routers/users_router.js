@@ -51,7 +51,7 @@ router.get("/auth/facebook", passportStrategies_1.default.authenticate("facebook
     scope: ["public_profile", "email"],
 }));
 router.get("/auth/facebook/callback", passportStrategies_1.default.authenticate("facebook"), users_controller_1.ssoCallback);
-router.get("/loginPage", users_controller_1.loginPage);
+router.get("/login", users_controller_1.loginPage);
 router.post("/signup", users_controller_1.createUser);
 router.get("/profile", Auth_1.authorization, users_controller_1.viewProfile);
 router.put("/profile", Auth_1.authorization, users_controller_1.updateProfile);

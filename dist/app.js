@@ -63,6 +63,11 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
     res.render("loginPage");
 });
+//delete when done testing
+app.get("/google/home/:token", (req, res) => {
+    let data = req.user;
+    res.render("googleHomepage", { data });
+});
 app.use("/users", users_router_1.default);
 app.use("/tasks", tasks_router_1.default);
 app.use("/projects", project_router_1.default);

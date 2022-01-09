@@ -100,11 +100,13 @@ export function loginPage(req: Request, res: Response) {
 }
 
 export function ssoCallback(req: Request, res: Response) {
+  console.log("facebook got to me");
   const user = req.user as UserInterface;
   const token = generateJwtToken(user);
   const redirectUrl = process.env.FRONTEND_SSO_REDIRECT as string;
   res.redirect(`${redirectUrl}/${token}`);
 }
+
 type customRequest = { user?: any } & Request;
 export async function changePassword(req: customRequest, res: Response) {
   const { oldPassword, newPassword, repeatPassword } = req.body;

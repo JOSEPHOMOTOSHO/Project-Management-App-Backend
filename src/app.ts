@@ -14,6 +14,16 @@ import mainCommentRouter from "./routers/comment_router";
 import multer from "multer";
 import cors from "cors";
 import passport from "./authentication/passportStrategies";
+import { UserInterface } from "./interfaces/interface";
+
+interface User {
+  _id?: string;
+  fullname?: string;
+}
+
+interface user extends User {
+  fullname?: string;
+}
 
 //Begining of the app
 const app = express();
@@ -67,6 +77,18 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 app.get("/", (req: express.Request, res: express.Response) => {
   res.render("loginPage");
 });
+
+//delete when done testing
+app.get(
+  "/google/home/:token",
+  (req: express.Request, res: express.Response) => {
+    let data = req.user as User;
+    res.render("googleHomepage", { data });
+  }
+);
+
+
+
 app.use("/users", mainUsersRouter);
 app.use("/tasks", tasksRouter);
 app.use("/projects", mainProjectRouter);

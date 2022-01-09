@@ -93,6 +93,7 @@ function loginPage(req, res) {
 }
 exports.loginPage = loginPage;
 function ssoCallback(req, res) {
+    console.log("facebook got to me");
     const user = req.user;
     const token = (0, generateToken_1.generateJwtToken)(user);
     const redirectUrl = process.env.FRONTEND_SSO_REDIRECT;
