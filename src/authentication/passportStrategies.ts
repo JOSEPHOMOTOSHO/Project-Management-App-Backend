@@ -41,11 +41,11 @@ dotenv.config();
      }
    )
  );
-
+//  :${process.env.PORT}
  const callbackURL =
    process.env.NODE_ENV == "production"
      ? `${process.env.HOME_URL}/users/google/redirect/`
-     : `${process.env.HOME_URL}:${process.env.PORT}/users/google/redirect`;
+     : `${process.env.HOME_URL}/users/google/redirect`;
 
  passport.use(
    new GoogleStrategy(
